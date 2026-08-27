@@ -1,0 +1,30 @@
+{
+    "name": "ompphp/packages-development",
+    "description": "Development tools for the ompphp component package monorepo",
+    "type": "project",
+    "license": "MPL-2.0",
+    "require": {
+        "php": ">=8.2",
+        "ext-json": "*",
+        "ext-zip": "*"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^2.1"
+    },
+    "autoload": {
+        "psr-4": {"OmpPhp\\Registry\\": "tools/registry/src/"}
+    },
+    "scripts": {
+        "validate:packages": "php tools/registry/bin/validate-packages.php",
+        "analyse": "phpstan analyse --no-progress",
+        "test:registry": "php tools/registry/tests/run.php",
+        "test:registry-e2e": "php tests/integration/registry-install.php",
+        "test": [
+            "@validate:packages",
+            "@analyse",
+            "@test:registry",
+            "@test:registry-e2e"
+        ]
+    },
+    "config": {"sort-packages": true}
+}

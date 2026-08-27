@@ -1,0 +1,8 @@
+parameters:
+    level: 6
+    paths:
+        - tools/registry/src
+        - tools/registry/bin
+        - tools/release
+        - tools/registry/tests
+        - tests/integration
